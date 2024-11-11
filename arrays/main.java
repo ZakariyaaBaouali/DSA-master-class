@@ -11,6 +11,8 @@ public class main {
 
         names.remove(3);
 
+        System.out.println(names.indexOf("amazn"));
+
         System.out.println(names);
     }
 }

@@ -23,6 +23,14 @@ public class Array<T> {
         }
     }
 
+    public int indexOf(T item) {
+        for (int i = 0; i < this.count; i++) {
+            if (this.items[i] == item)
+                return i;
+        }
+        return -1;
+    }
+
     private void checkCapacity() {
         if (this.count == this.items.length) {
             Object[] newItems = new Object[this.count * 2];
