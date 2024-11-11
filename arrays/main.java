@@ -9,6 +9,8 @@ public class main {
         names.insert("tesla");
         names.insert("meta");
 
+        names.remove(3);
+
         System.out.println(names);
     }
 }

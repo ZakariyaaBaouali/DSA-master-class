@@ -16,6 +16,13 @@ public class Array<T> {
         this.items[this.count++] = item;
     }
 
+    public void remove(int index) {
+        for (int i = index; i < this.items.length - 1; i++) {
+            // item[i] <--- item[ i + 1]
+            this.items[i] = this.items[i + 1];
+        }
+    }
+
     private void checkCapacity() {
         if (this.count == this.items.length) {
             Object[] newItems = new Object[this.count * 2];
