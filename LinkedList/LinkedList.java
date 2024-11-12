@@ -15,6 +15,7 @@ public class LinkedList<T> {
 
     private Node first;
     private Node last;
+    private int size;
 
     public void addLast(T item) {
         var node = new Node(item);
@@ -26,6 +27,7 @@ public class LinkedList<T> {
             this.last = node;
         }
 
+        this.size++;
     }
 
     public void addFirst(T item) {
@@ -36,6 +38,8 @@ public class LinkedList<T> {
         else
             node.next = this.first;
         this.first = node;
+
+        this.size++;
     }
 
     public int indexOf(T item) {
@@ -65,6 +69,7 @@ public class LinkedList<T> {
             this.last = previous;
         }
 
+        this.size--;
     }
 
     public void removeFirst() {
@@ -74,6 +79,12 @@ public class LinkedList<T> {
             var next = this.first.next;
             this.first = next;
         }
+
+        this.size--;
+    }
+
+    public int Size() {
+        return this.size;
     }
 
     @Override

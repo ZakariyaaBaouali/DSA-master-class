@@ -17,6 +17,8 @@ public class Main {
         numbers.removeFirst();
         numbers.removeFirst();
 
+        System.out.println("New size of the linkedlist is : " + numbers.Size());
+
         System.out.println(numbers);
     }
 
