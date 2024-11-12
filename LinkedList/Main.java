@@ -10,6 +10,8 @@ public class Main {
         numbers.addFirst(20);
         numbers.addFirst(30);
 
+        System.out.println("Index of  : " + numbers.indexOf(100));
+
         System.out.println(numbers);
     }
 

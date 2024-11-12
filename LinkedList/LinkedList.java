@@ -38,6 +38,20 @@ public class LinkedList<T> {
         this.first = node;
     }
 
+    public int indexOf(T item) {
+        var current = this.first;
+        var index = 0;
+
+        while (current != null) {
+            if (current.value.equals(item))
+                return index;
+
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+
     @Override
     public String toString() {
         ArrayList<Object> items = new ArrayList<>();
