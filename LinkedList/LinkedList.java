@@ -67,6 +67,15 @@ public class LinkedList<T> {
 
     }
 
+    public void removeFirst() {
+        if (this.isFirstAndLastEquals())
+            this.first = this.last = null;
+        else {
+            var next = this.first.next;
+            this.first = next;
+        }
+    }
+
     @Override
     public String toString() {
         ArrayList<Object> items = new ArrayList<>();
