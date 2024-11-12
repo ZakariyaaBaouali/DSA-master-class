@@ -52,6 +52,10 @@ public class LinkedList<T> {
         return -1;
     }
 
+    public boolean contains(T item) {
+        return this.indexOf(item) >= 0;
+    }
+
     @Override
     public String toString() {
         ArrayList<Object> items = new ArrayList<>();
