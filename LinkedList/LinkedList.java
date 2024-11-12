@@ -28,6 +28,16 @@ public class LinkedList<T> {
 
     }
 
+    public void addFirst(T item) {
+        var node = new Node(item);
+
+        if (this.isEmpty())
+            this.first = this.last = node;
+        else
+            node.next = this.first;
+        this.first = node;
+    }
+
     @Override
     public String toString() {
         ArrayList<Object> items = new ArrayList<>();
