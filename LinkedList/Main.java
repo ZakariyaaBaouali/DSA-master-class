@@ -13,6 +13,10 @@ public class Main {
         System.out.println("Index of  : " + numbers.indexOf(100));
         System.out.println("Is item avilaible : " + numbers.contains(10));
 
+        numbers.removeLast();
+        numbers.removeLast();
+        numbers.removeLast();
+
         System.out.println(numbers);
     }
 

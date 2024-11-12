@@ -56,6 +56,17 @@ public class LinkedList<T> {
         return this.indexOf(item) >= 0;
     }
 
+    public void removeLast() {
+        if (this.isFirstAndLastEquals())
+            this.first = this.last = null;
+        else {
+            var previous = this.findPrevious(this.last);
+            previous.next = null;
+            this.last = previous;
+        }
+
+    }
+
     @Override
     public String toString() {
         ArrayList<Object> items = new ArrayList<>();
@@ -69,5 +80,20 @@ public class LinkedList<T> {
 
     private boolean isEmpty() {
         return this.first == null;
+    }
+
+    private boolean isFirstAndLastEquals() {
+        return this.first == this.last;
+    }
+
+    private Node findPrevious(Node node) {
+        var current = this.first;
+        while (current != null) {
+            if (current.next.equals(node))
+                break;
+            current = current.next;
+        }
+
+        return current;
     }
 }
