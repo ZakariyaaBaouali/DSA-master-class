@@ -20,6 +20,11 @@ public class Main {
         System.out.println("New size of the linkedlist is : " + numbers.Size());
 
         System.out.println(numbers.toString());
+
+        numbers.reverse();
+
+        System.out.println(numbers.toString());
+
     }
 
 }

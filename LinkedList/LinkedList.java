@@ -100,6 +100,22 @@ public class LinkedList<T> {
         return (T[]) items;
     }
 
+    public void reverse() {
+        var current = this.first.next;
+        var previous = this.first;
+
+        while (current != null) {
+            var next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+
+        this.last = this.first;
+        this.last.next = null;
+        this.first = previous;
+    }
+
     @Override
     public String toString() {
         return Arrays.toString(this.toArray());
