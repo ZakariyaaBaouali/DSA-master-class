@@ -1,5 +1,7 @@
 package LinkedList;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -14,12 +16,10 @@ public class Main {
         System.out.println("Is item avilaible : " + numbers.contains(10));
 
         numbers.removeFirst();
-        numbers.removeFirst();
-        numbers.removeFirst();
 
         System.out.println("New size of the linkedlist is : " + numbers.Size());
 
-        System.out.println(numbers);
+        System.out.println(numbers.toString());
     }
 
 }

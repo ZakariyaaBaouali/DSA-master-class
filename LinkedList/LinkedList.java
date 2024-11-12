@@ -1,6 +1,7 @@
 package LinkedList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class LinkedList<T> {
 
@@ -87,15 +88,21 @@ public class LinkedList<T> {
         return this.size;
     }
 
+    public T[] toArray() {
+        Object[] items = new Object[this.size];
+        var current = this.first;
+
+        for (int i = 0; i < this.size; i++) {
+            items[i] = current.value;
+            current = current.next;
+        }
+
+        return (T[]) items;
+    }
+
     @Override
     public String toString() {
-        ArrayList<Object> items = new ArrayList<>();
-        var cuurent = this.first;
-        while (cuurent != null) {
-            items.add(cuurent.value);
-            cuurent = cuurent.next;
-        }
-        return items.toString();
+        return Arrays.toString(this.toArray());
     }
 
     private boolean isEmpty() {
