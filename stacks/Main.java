@@ -15,6 +15,11 @@ public class Main {
             names.push("tesla");
             names.push("meta");
 
+            System.out.println(names.pop());
+            System.out.println(names.pop());
+            System.out.println(names.pop());
+            System.out.println(names.pop());
+
             System.out.println(names);
         } catch (Exception e) {
             System.out.println(e.getMessage());

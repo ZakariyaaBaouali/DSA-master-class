@@ -17,6 +17,21 @@ public class StackArray<T> {
         this.items[this.count++] = item;
     }
 
+    public T peek() {
+        return (T) this.items[this.count - 1];
+    }
+
+    public T pop() throws Exception {
+        if (!isEmpty())
+            return (T) this.items[--this.count];
+        else
+            throw new Exception("Stack is empty");
+    }
+
+    public boolean isEmpty() {
+        return this.count == 0;
+    }
+
     @Override
     public String toString() {
         return Arrays.toString(this.items);
