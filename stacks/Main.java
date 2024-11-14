@@ -9,6 +9,17 @@ public class Main {
         System.out.println(reverseString("hello"));
         System.out.println("Is balanced : " + balancedExp("({1 + 2)}"));
 
+        StackArray<String> names = new StackArray<>(3);
+        try {
+            names.push("zakaria");
+            names.push("tesla");
+            names.push("meta");
+
+            System.out.println(names);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public static String reverseString(String str) {
