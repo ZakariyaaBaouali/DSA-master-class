@@ -12,20 +12,24 @@ public class QueueArray<T> {
         this.items = new Object[capacity];
     }
 
-    public void enQueue(T item) {
+    public void enQueue(T item) throws Exception {
+        if (this.isFull())
+            throw new Exception("Queue is Full");
         this.items[this.front++] = item;
     }
 
-    public T deQueue() {
+    public T deQueue() throws Exception {
+        if (this.isEmpty())
+            throw new Exception("Queue is empty");
         return (T) this.items[this.back++];
     }
 
     public boolean isEmpty() {
-        return this.back == 0 && this.front == 0;
+        return this.front == this.back;
     }
 
     public boolean isFull() {
-        return this.back == this.front;
+        return this.front == this.items.length;
     }
 
     @Override
