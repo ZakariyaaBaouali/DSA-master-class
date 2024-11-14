@@ -35,6 +35,17 @@ public class StackLinkedList<T> {
 
     }
 
+    // remove first impl...
+    public T pop() throws Exception {
+        if (this.isEmpty())
+            throw new Exception("Stack is empty");
+
+        var temp = this.first.next;
+        T value = (T) this.first.value;
+        this.first = temp;
+        return value;
+    }
+
     public boolean isEmpty() {
         return this.first == null;
     }
