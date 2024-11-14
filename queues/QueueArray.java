@@ -1,5 +1,7 @@
 package queues;
 
+import java.util.Arrays;
+
 public class QueueArray<T> {
 
     private Object[] items;
@@ -8,6 +10,15 @@ public class QueueArray<T> {
 
     public QueueArray(int capacity) {
         this.items = new Object[capacity];
+    }
+
+    public void enQueue(T item) {
+        this.items[this.front++] = item;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(this.items);
     }
 
 }
