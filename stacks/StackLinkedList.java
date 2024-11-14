@@ -46,6 +46,13 @@ public class StackLinkedList<T> {
         return value;
     }
 
+    public T peek() throws Exception {
+        if (this.isEmpty())
+            throw new Exception("Stack is empty");
+
+        return (T) this.first.value;
+    }
+
     public boolean isEmpty() {
         return this.first == null;
     }
