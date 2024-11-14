@@ -25,6 +25,20 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        StackLinkedList<Integer> numbers = new StackLinkedList<>();
+        numbers.push(10);
+        numbers.push(20);
+
+        try {
+            System.out.println("peek is : " + numbers.peek());
+            System.out.println(numbers.pop());
+            System.out.println(numbers.pop());
+            System.out.println(numbers.pop());
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public static String reverseString(String str) {
