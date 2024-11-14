@@ -7,6 +7,8 @@ public class Main {
         System.out.println("Hello stacks LIFO 🚀🚀🚀");
 
         System.out.println(reverseString("hello"));
+        System.out.println("Is balanced : " + balancedExp("({1 + 2)}"));
+
     }
 
     public static String reverseString(String str) {
@@ -21,5 +23,34 @@ public class Main {
         }
 
         return revStr.toString();
+    }
+
+    public static boolean balancedExp(String str) {
+        Stack<Character> chars = new Stack<>();
+
+        for (char ch : str.toCharArray()) {
+            switch (ch) {
+                case '(':
+                    chars.push(ch);
+                    break;
+                case ')':
+                    chars.pop();
+                    break;
+                case '[':
+                    chars.push(ch);
+                    break;
+                case ']':
+                    chars.pop();
+                    break;
+                case '{':
+                    chars.push(ch);
+                    break;
+                case '}':
+                    chars.pop();
+                    break;
+            }
+        }
+
+        return chars.isEmpty();
     }
 }
