@@ -13,13 +13,11 @@ public class Main {
         try {
             orders.enQueue("order 1");
             orders.enQueue("order 2");
-            orders.enQueue("order 3");
-            orders.enQueue("order 4");
 
             System.out.println(orders.deQueue());
-            System.out.println(orders.deQueue());
-            System.out.println(orders.deQueue());
-            System.out.println(orders.deQueue());
+
+            orders.enQueue("order 3");
+            orders.enQueue("order 4");
 
             System.out.println(orders);
         } catch (Exception e) {

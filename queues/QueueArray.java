@@ -16,7 +16,8 @@ public class QueueArray<T> {
     public void enQueue(T item) throws Exception {
         if (this.isFull())
             throw new Exception("Queue is Full");
-        this.items[this.front++] = item;
+        this.items[this.front] = item;
+        this.front = (this.front + 1) % this.items.length;
         this.count++;
     }
 
@@ -24,13 +25,16 @@ public class QueueArray<T> {
         if (this.isEmpty())
             throw new Exception("Queue is empty");
 
+        var item = (T) this.items[this.back];
+        this.items[this.back] = 0;
+        this.back = (this.back + 1) % this.items.length;
         this.count--;
-        return (T) this.items[this.back++];
+        return item;
+
     }
 
     public boolean isEmpty() {
         return this.count == 0;
-        ;
     }
 
     public boolean isFull() {
