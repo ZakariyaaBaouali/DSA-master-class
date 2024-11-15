@@ -35,6 +35,20 @@ public class QueueLinkedList<T> {
         this.count++;
     }
 
+    public T deQueue() {
+        T value;
+
+        if (this.isEmpty())
+            return null;
+        else {
+            value = (T) this.first.value;
+            this.first = this.first.next;
+        }
+
+        this.count++;
+        return value;
+    }
+
     public boolean isEmpty() {
         return this.first == null;
     }
