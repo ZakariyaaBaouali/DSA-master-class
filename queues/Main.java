@@ -24,6 +24,15 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        QueueLinkedList<Integer> numbers = new QueueLinkedList<>();
+        numbers.enQueue(10);
+        numbers.enQueue(20);
+        numbers.enQueue(30);
+
+        System.out.println("deQueue 1 : " + numbers.deQueue());
+
+        System.out.println(numbers);
+
         // JAVA IMPLEMENTATION FOR QUEUE
         Queue<Integer> queue = new ArrayDeque<>();
         queue.add(10);
