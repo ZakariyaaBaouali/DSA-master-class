@@ -19,5 +19,23 @@ public class QueueLinkedList<T> {
 
     private Node first;
     private Node last;
+    private int count;
 
+    // add last
+    public void enQueue(T item) {
+        var node = new Node(item);
+
+        if (this.isEmpty())
+            this.first = this.last = node;
+        else {
+            this.last.next = node;
+            this.last = node;
+        }
+
+        this.count++;
+    }
+
+    public boolean isEmpty() {
+        return this.first == null;
+    }
 }
