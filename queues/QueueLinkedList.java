@@ -1,5 +1,7 @@
 package queues;
 
+import java.util.Arrays;
+
 public class QueueLinkedList<T> {
 
     private class Node {
@@ -45,11 +47,28 @@ public class QueueLinkedList<T> {
             this.first = this.first.next;
         }
 
-        this.count++;
+        this.count--;
         return value;
     }
 
     public boolean isEmpty() {
         return this.first == null;
+    }
+
+    private Object[] toArray() {
+        var current = this.first;
+        Object[] items = new Object[this.count];
+
+        for (int i = 0; i < this.count; i++) {
+            items[i] = current.value;
+            current = current.next;
+        }
+
+        return items;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(this.toArray());
     }
 }
