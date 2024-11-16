@@ -6,6 +6,7 @@ public class ArrayPriorityQueue {
 
     private int[] items;
     private int count;
+    private int back;
 
     public ArrayPriorityQueue(int capacity) {
         this.items = new int[capacity];
@@ -25,8 +26,15 @@ public class ArrayPriorityQueue {
         this.count++;
     }
 
+    public int deQueue() throws Exception {
+        if (this.isEmpty())
+            throw new Exception("Priority Queue is Empty 👋");
+
+        return this.items[this.back++];
+    }
+
     public boolean isEmpty() {
-        return this.count == 0;
+        return this.back == this.count;
     }
 
     @Override

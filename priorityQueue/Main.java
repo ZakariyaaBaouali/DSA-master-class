@@ -13,6 +13,8 @@ public class Main {
         queue.add(3);
         queue.add(2);
 
+        System.out.println(queue);
+
         while (!queue.isEmpty())
             System.out.println(queue.remove());
 
@@ -23,6 +25,13 @@ public class Main {
         queue2.enQueue(3);
         queue2.enQueue(2);
         queue2.enQueue(4);
+
+        try {
+            while (!queue2.isEmpty())
+                System.out.println(queue2.deQueue());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
         System.out.println(queue2);
     }
