@@ -20,13 +20,14 @@ public class Main {
 
         // test impl
         ArrayPriorityQueue queue2 = new ArrayPriorityQueue(5);
-        queue2.enQueue(5);
-        queue2.enQueue(1);
-        queue2.enQueue(3);
-        queue2.enQueue(2);
-        queue2.enQueue(4);
 
         try {
+            queue2.enQueue(5);
+            queue2.enQueue(1);
+            queue2.enQueue(3);
+            queue2.enQueue(2);
+            queue2.enQueue(4);
+
             while (!queue2.isEmpty())
                 System.out.println(queue2.deQueue());
         } catch (Exception e) {

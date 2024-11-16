@@ -12,9 +12,11 @@ public class ArrayPriorityQueue {
         this.items = new int[capacity];
     }
 
-    public void enQueue(int item) {
-        int i;
+    public void enQueue(int item) throws Exception {
+        if (this.isFull())
+            throw new Exception("Prioriy queue is full 👋");
 
+        int i;
         for (i = this.count - 1; i >= 0; i--) {
             if (this.items[i] > item)
                 this.items[i + 1] = this.items[i];
@@ -35,6 +37,10 @@ public class ArrayPriorityQueue {
 
     public boolean isEmpty() {
         return this.back == this.count;
+    }
+
+    public boolean isFull() {
+        return this.count == this.items.length;
     }
 
     @Override
