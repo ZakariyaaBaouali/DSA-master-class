@@ -25,6 +25,7 @@ public class Main {
 
         System.out.println(map);
         System.out.println("First not repeated character is : " + firstNotRepChar("a green apple"));
+        System.out.println("First repeated character is : " + firstRepChar("green apple"));
 
         // Sets impl
         int[] numbers = { 1, 2, 3, 3, 4, 1, 5, 5, 5 };
@@ -55,5 +56,18 @@ public class Main {
             set.add(number);
 
         System.out.println(set);
+    }
+
+    public static char firstRepChar(String str) {
+        Set<Character> set = new HashSet<>();
+
+        for (var item : str.toCharArray()) {
+            if (set.contains(item))
+                return item;
+            else
+                set.add(item);
+        }
+
+        return Character.MIN_VALUE;
     }
 }
