@@ -1,7 +1,9 @@
 package hashTables;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Main {
 
@@ -23,6 +25,10 @@ public class Main {
 
         System.out.println(map);
         System.out.println("First not repeated character is : " + firstNotRepChar("a green apple"));
+
+        // Sets impl
+        int[] numbers = { 1, 2, 3, 3, 4, 1, 5, 5, 5 };
+        removeDuplicates(numbers);
     }
 
     public static char firstNotRepChar(String str) {
@@ -40,5 +46,14 @@ public class Main {
         }
 
         return Character.MIN_VALUE;
+    }
+
+    public static void removeDuplicates(int[] numbres) {
+        Set<Integer> set = new HashSet<>();
+
+        for (var number : numbres)
+            set.add(number);
+
+        System.out.println(set);
     }
 }
