@@ -30,6 +30,9 @@ public class Main {
         // Sets impl
         int[] numbers = { 1, 2, 3, 3, 4, 1, 5, 5, 5 };
         removeDuplicates(numbers);
+
+        // hashing
+        System.out.println("hash a key to proper index : " + hashFunction("123456-A"));
     }
 
     public static char firstNotRepChar(String str) {
@@ -69,5 +72,19 @@ public class Main {
         }
 
         return Character.MIN_VALUE;
+    }
+
+    public static int hashFunction(int key) {
+        // imagine size of the array is 100;
+        return key % 100;
+    }
+
+    public static int hashFunction(String key) {
+        // imagine size of the array is 100;
+        int hash = 0;
+        for (char ch : key.toCharArray())
+            hash += ch;
+
+        return hash % 100;
     }
 }
