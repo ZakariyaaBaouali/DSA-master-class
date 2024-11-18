@@ -45,6 +45,20 @@ public class BinaryTree {
         }
     }
 
+    public boolean find(int value) {
+        var current = this.root;
+        while (current != null) {
+            if (current.value == value)
+                return true;
+            else if (value > current.value)
+                current = current.rightChild;
+            else
+                current = current.leftChild;
+        }
+
+        return false;
+    }
+
     public boolean isEmpty() {
         return this.root == null;
     }

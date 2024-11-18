@@ -10,5 +10,7 @@ public class Main {
 
         for (var input : inputs)
             tree.insert(input);
+
+        System.out.println(tree.find(100));
     }
 }
