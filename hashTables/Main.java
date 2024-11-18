@@ -33,6 +33,13 @@ public class Main {
 
         // hashing
         System.out.println("hash a key to proper index : " + hashFunction("123456-A"));
+
+        // hash table imp
+        HashTable table = new HashTable(5);
+        table.put(1, "zak");
+        table.put(15, "mosh");
+
+        System.out.println(table.get(15));
     }
 
     public static char firstNotRepChar(String str) {
