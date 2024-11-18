@@ -1,5 +1,6 @@
 package hashTables;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class HashTable {
@@ -26,7 +27,10 @@ public class HashTable {
             this.entries[index] = new LinkedList<>();
 
         var bucket = this.getBucket(key);
-        this.getBucketEntry(key).value = value;
+        var entry = this.getBucketEntry(key);
+        if (entry != null) {
+            entry.value = value;
+        }
 
         bucket.addLast(new Entry(key, value));
     }
@@ -43,6 +47,12 @@ public class HashTable {
         bucket.remove(this.getBucketEntry(key));
     }
 
+    @Override
+    public String toString() {
+        return Arrays.toString(this.ToArray());
+    }
+
+    // private methods
     private int hash(int key) {
         return key % this.entries.length;
     }
@@ -60,5 +70,26 @@ public class HashTable {
         }
 
         return null;
+    }
+
+    private String[] ToArray() {
+        String[] items = new String[this.entries.length];
+        for (int i = 0; i < items.length; i++) {
+            var bucket = this.entries[i];
+            var count = 1;
+
+            if (bucket == null)
+                continue;
+
+            for (var entry : bucket) {
+                if (count == 1) {
+                    items[i] = entry.key + "=" + entry.value;
+                    count++;
+                } else
+                    items[i] += "," + entry.value;
+            }
+        }
+
+        return items;
     }
 }

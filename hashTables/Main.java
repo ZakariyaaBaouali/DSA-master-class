@@ -37,8 +37,8 @@ public class Main {
         // hash table imp
         HashTable table = new HashTable(5);
         table.put(1, "zak");
-        table.put(15, "mosh");
-        table.put(5, "marianne");
+        table.put(5, "mosh");
+        table.put(15, "marianne");
 
         System.out.println(table.get(15));
 
@@ -48,7 +48,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("done");
+        System.out.println(table);
     }
 
     public static char firstNotRepChar(String str) {
