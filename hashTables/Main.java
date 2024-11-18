@@ -38,8 +38,17 @@ public class Main {
         HashTable table = new HashTable(5);
         table.put(1, "zak");
         table.put(15, "mosh");
+        table.put(5, "marianne");
 
         System.out.println(table.get(15));
+
+        try {
+            table.remove(5);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("done");
     }
 
     public static char firstNotRepChar(String str) {

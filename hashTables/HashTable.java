@@ -26,24 +26,21 @@ public class HashTable {
             this.entries[index] = new LinkedList<>();
 
         var bucket = this.getBucket(key);
-        for (var entry : bucket) {
-            if (entry.key == key) {
-                entry.value = value;
-                return;
-            }
-        }
+        this.getBucketEntry(key).value = value;
 
         bucket.addLast(new Entry(key, value));
     }
 
     public String get(int key) {
-        var bucket = this.getBucket(key);
-        for (var entry : bucket) {
-            if (entry.key == key)
-                return entry.value;
-        }
+        return this.getBucketEntry(key).value;
+    }
 
-        return null;
+    public void remove(int key) throws Exception {
+        var bucket = this.getBucket(key);
+        if (bucket == null)
+            throw new Exception("Bucket with key " + key + " is null");
+
+        bucket.remove(this.getBucketEntry(key));
     }
 
     private int hash(int key) {
@@ -52,5 +49,16 @@ public class HashTable {
 
     private LinkedList<Entry> getBucket(int key) {
         return this.entries[this.hash(key)];
+    }
+
+    private Entry getBucketEntry(int key) {
+        var bucket = this.getBucket(key);
+        for (var entry : bucket) {
+            if (entry.key == key) {
+                return entry;
+            }
+        }
+
+        return null;
     }
 }
