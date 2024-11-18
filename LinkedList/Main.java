@@ -25,6 +25,10 @@ public class Main {
 
         System.out.println(numbers.toString());
 
+        // Java Imp
+        java.util.LinkedList<String> names = new java.util.LinkedList<>();
+        names.addFirst("zack");
+        names.addLast("zak");
     }
 
 }
