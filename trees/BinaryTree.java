@@ -20,8 +20,11 @@ public class BinaryTree {
     }
 
     private Node root;
-
     private LinkedList<Integer> items;
+
+    public BinaryTree() {
+        this.items = new LinkedList<>();
+    }
 
     public void insert(int value) {
         var node = new Node(value);
@@ -69,7 +72,7 @@ public class BinaryTree {
 
     // Traversal
     public LinkedList<Integer> preOrderTraversal() {
-        this.items = new LinkedList<>();
+        this.items.clear();
         this.preOrderTraversal(this.root);
         return this.items;
     }
@@ -88,5 +91,22 @@ public class BinaryTree {
 
     private boolean isLeaf(Node node) {
         return node.rightChild == null && node.leftChild == null;
+    }
+
+    public LinkedList<Integer> inOrderTraversal() {
+        this.items.clear();
+        this.inOrderTraversal(this.root);
+        return this.items;
+    }
+
+    private void inOrderTraversal(Node root) {
+        if (this.isLeaf(root)) {
+            this.items.add(root.value);
+            return;
+        }
+
+        this.inOrderTraversal(root.leftChild);
+        this.items.add(root.value);
+        this.inOrderTraversal(root.rightChild);
     }
 }

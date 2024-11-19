@@ -17,7 +17,12 @@ public class Main {
         System.out.println("factorial of 4 : " + factorial(4));
 
         // Traversal
+        System.out.println("Pre Order traversal");
         var items = tree.preOrderTraversal();
+        System.out.println(items);
+
+        System.out.println("in Order traversal");
+        var items2 = tree.inOrderTraversal();
         System.out.println(items);
     }
 
