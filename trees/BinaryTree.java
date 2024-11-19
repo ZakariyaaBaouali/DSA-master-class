@@ -109,4 +109,21 @@ public class BinaryTree {
         this.items.add(root.value);
         this.inOrderTraversal(root.rightChild);
     }
+
+    public LinkedList<Integer> postOrderTraversal() {
+        this.items.clear();
+        this.postOrderTraversal(this.root);
+        return this.items;
+    }
+
+    private void postOrderTraversal(Node root) {
+        if (this.isLeaf(root)) {
+            this.items.add(root.value);
+            return;
+        }
+
+        this.postOrderTraversal(root.leftChild);
+        this.postOrderTraversal(root.rightChild);
+        this.items.add(root.value);
+    }
 }

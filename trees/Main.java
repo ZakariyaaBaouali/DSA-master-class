@@ -24,6 +24,10 @@ public class Main {
         System.out.println("in Order traversal");
         var items2 = tree.inOrderTraversal();
         System.out.println(items);
+
+        System.out.println("post Order traversal");
+        var items3 = tree.postOrderTraversal();
+        System.out.println(items);
     }
 
     public static int factorial(int number) {
