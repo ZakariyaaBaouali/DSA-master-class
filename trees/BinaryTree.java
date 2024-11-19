@@ -1,5 +1,7 @@
 package trees;
 
+import java.util.LinkedList;
+
 public class BinaryTree {
 
     private class Node {
@@ -18,6 +20,8 @@ public class BinaryTree {
     }
 
     private Node root;
+
+    private LinkedList<Integer> items;
 
     public void insert(int value) {
         var node = new Node(value);
@@ -63,4 +67,26 @@ public class BinaryTree {
         return this.root == null;
     }
 
+    // Traversal
+    public LinkedList<Integer> preOrderTraversal() {
+        this.items = new LinkedList<>();
+        this.preOrderTraversal(this.root);
+        return this.items;
+    }
+
+    private void preOrderTraversal(Node root) {
+        // stop / base condition
+        if (this.isLeaf(root)) {
+            this.items.add(root.value);
+            return;
+        }
+
+        this.items.add(root.value);
+        this.preOrderTraversal(root.leftChild);
+        this.preOrderTraversal(root.rightChild);
+    }
+
+    private boolean isLeaf(Node node) {
+        return node.rightChild == null && node.leftChild == null;
+    }
 }

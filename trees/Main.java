@@ -15,6 +15,10 @@ public class Main {
 
         // factorial impl
         System.out.println("factorial of 4 : " + factorial(4));
+
+        // Traversal
+        var items = tree.preOrderTraversal();
+        System.out.println(items);
     }
 
     public static int factorial(int number) {
