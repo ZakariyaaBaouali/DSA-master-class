@@ -28,6 +28,9 @@ public class Main {
         System.out.println("post Order traversal");
         var items3 = tree.postOrderTraversal();
         System.out.println(items);
+
+        //high of the tree
+        System.out.printf("High of the tree is : " + tree.highOfTree());
     }
 
     public static int factorial(int number) {

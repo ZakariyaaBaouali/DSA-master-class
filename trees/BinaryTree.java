@@ -126,4 +126,17 @@ public class BinaryTree {
         this.postOrderTraversal(root.rightChild);
         this.items.add(root.value);
     }
+
+    public int highOfTree() {
+        return this.highOfTree(this.root);
+    }
+
+    private int highOfTree(Node root) {
+        if (this.isLeaf(root))
+            return 1;
+
+        int highLeft = this.highOfTree(root.leftChild);
+        int highRight = this.highOfTree(root.rightChild);
+        return Math.max(highLeft, highRight) + 1;
+    }
 }
