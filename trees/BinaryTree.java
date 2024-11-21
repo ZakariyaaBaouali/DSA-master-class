@@ -175,4 +175,23 @@ public class BinaryTree {
         return  Math.max(root.value , Math.max(leftValue , rightValue));
     }
 
+
+    public boolean equals(BinaryTree tree){
+        if(tree.isEmpty() || this.isEmpty())
+            return false;
+
+        return this.equals(this.root , tree.root);
+    }
+
+    //preOrder traversal
+    private boolean equals(Node first , Node second){
+        if(this.isLeaf(first) && this.isLeaf(second)){
+            return first.value == second.value;
+        }
+
+        if(first.value == second.value)
+            return  this.equals(first.leftChild , second.leftChild) == this.equals(first.rightChild , second.rightChild);
+
+        return false;
+    }
 }

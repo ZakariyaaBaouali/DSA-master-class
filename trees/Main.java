@@ -37,6 +37,15 @@ public class Main {
 
         //Max of the tree
         System.out.println("Max of the tree is : " + tree.getMax());
+
+        //equal trees
+        BinaryTree tree1 = new BinaryTree();
+        int[] inputs2 = { 7, 4, 9, 1, 6, 8, 11 , 10 , 13 };
+
+        for (var input : inputs2)
+            tree1.insert(input);
+
+        System.out.println("check quality for 2 trees : " + tree.equals(tree1));
     }
 
     public static int factorial(int number) {
