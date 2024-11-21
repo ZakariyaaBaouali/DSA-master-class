@@ -128,6 +128,9 @@ public class BinaryTree {
     }
 
     public int highOfTree() {
+        if(this.isEmpty())
+            return  -1;
+
         return this.highOfTree(this.root);
     }
 
