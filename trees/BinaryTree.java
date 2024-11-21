@@ -133,7 +133,7 @@ public class BinaryTree {
 
     private int highOfTree(Node root) {
         if (this.isLeaf(root))
-            return 1;
+            return 0;
 
         int highLeft = this.highOfTree(root.leftChild);
         int highRight = this.highOfTree(root.rightChild);

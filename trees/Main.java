@@ -6,7 +6,7 @@ public class Main {
         System.out.println("Hello trees 👋👋");
 
         BinaryTree tree = new BinaryTree();
-        int[] inputs = { 7, 4, 9, 1, 6, 8, 10 };
+        int[] inputs = { 7, 4, 9, 1, 6, 8, 11 , 10 , 12 };
 
         for (var input : inputs)
             tree.insert(input);
