@@ -34,6 +34,9 @@ public class Main {
 
         //Min of the tree
         System.out.println("Min of the tree is : " + tree.getMin());
+
+        //Max of the tree
+        System.out.println("Max of the tree is : " + tree.getMax());
     }
 
     public static int factorial(int number) {
