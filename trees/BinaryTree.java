@@ -194,4 +194,25 @@ public class BinaryTree {
 
         return false;
     }
+
+    public boolean isBinarySearchTree(){
+        if(this.isEmpty())
+            return true;
+
+        return this.isBinarySearchTree(this.root , Integer.MIN_VALUE , Integer.MAX_VALUE );
+    }
+
+    //preOrder traversal
+    private  boolean isBinarySearchTree(Node root , int min  , int max){
+        if(this.isLeaf(root))
+            return true;
+
+        if(root.value < min || root.value > max)
+            return false;
+
+        boolean validLeft = this.isBinarySearchTree(root.leftChild , min , root.value - 1);
+        boolean validRight = this.isBinarySearchTree(root.rightChild , root.value + 1 , max);
+
+        return  validLeft && validRight;
+    }
 }
