@@ -6,7 +6,7 @@ public class Main {
         System.out.println("Hello trees 👋👋");
 
         BinaryTree tree = new BinaryTree();
-        int[] inputs = { 7, 4, 9, 1, 6, 8, 10 };
+        int[] inputs = { 7, 4, 9, 1, 6, 8, 11 , 10 , 12 };
 
         for (var input : inputs)
             tree.insert(input);
@@ -50,6 +50,9 @@ public class Main {
 
         //Valid BST
         System.out.println("Is a valid BinarySearch Tree : " + tree.isBinarySearchTree());
+
+        //nodes k distance from root
+        System.out.println("k distance from root : " + tree.kDistanceFromRoot(3));
     }
 
     public static int factorial(int number) {

@@ -1,5 +1,6 @@
 package trees;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class BinaryTree {
@@ -214,5 +215,28 @@ public class BinaryTree {
         boolean validRight = this.isBinarySearchTree(root.rightChild , root.value + 1 , max);
 
         return  validLeft && validRight;
+    }
+
+    public LinkedList<Integer> kDistanceFromRoot(int distance){
+        if(this.isEmpty())
+            return null;
+
+        this.items.clear();
+        this.kDistanceFromRoot(this.root , distance);
+
+        return this.items;
+    }
+
+    private void kDistanceFromRoot(Node root , int distance){
+        if(root == null)
+            return;
+
+        if(distance == 0){
+            this.items.add(root.value);
+            return;
+        }
+
+        this.kDistanceFromRoot(root.leftChild , distance - 1);
+        this.kDistanceFromRoot(root.rightChild , distance - 1);
     }
 }
