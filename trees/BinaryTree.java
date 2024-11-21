@@ -142,4 +142,20 @@ public class BinaryTree {
         int highRight = this.highOfTree(root.rightChild);
         return Math.max(highLeft, highRight) + 1;
     }
+
+    public int getMin(){
+        if(this.isEmpty())
+            return Integer.MIN_VALUE;
+
+        return this.getMin(this.root);
+    }
+
+    private int getMin(Node root){
+        if(this.isLeaf(root))
+            return root.value;
+
+        int leftValue = this.getMin(root.leftChild);
+        int rightValue = this.getMin(root.rightChild);
+        return  Math.min(root.value , Math.min(leftValue , rightValue));
+    }
 }

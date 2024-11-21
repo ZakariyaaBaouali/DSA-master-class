@@ -30,7 +30,10 @@ public class Main {
         System.out.println(items);
 
         //high of the tree
-        System.out.printf("High of the tree is : " + tree.highOfTree());
+        System.out.println("High of the tree is : " + tree.highOfTree());
+
+        //Min of the tree
+        System.out.println("Min of the tree is : " + tree.getMin());
     }
 
     public static int factorial(int number) {
