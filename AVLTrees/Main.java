@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hi AVT trees 👋👋");
 
-        int[] inputs = { 7 , 4 , 9 };
+        int[] inputs = { 10 , 20 , 30 };
         AVLTree tree = new AVLTree();
 
         for(var input : inputs)
