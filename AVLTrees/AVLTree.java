@@ -37,7 +37,17 @@ public class AVLTree {
             root.leftChild = this.insert(root.leftChild , value);
 
 
-        root.height = Math.max(this.height(root.leftChild) , this.height(root.rightChild)) + 1;
+        var leftHeight = this.height(root.leftChild);
+        var rightHeight = this.height(root.rightChild);
+
+        root.height = Math.max(leftHeight , rightHeight) + 1;
+
+        var balanceFactor = leftHeight - rightHeight;
+        if(balanceFactor > 1)
+            System.out.println(root.value + " is left heavy");
+        else if(balanceFactor < -1)
+            System.out.println(root.value + " is right heavy");
+
         return root;
     }
 
