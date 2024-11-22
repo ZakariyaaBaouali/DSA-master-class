@@ -53,6 +53,9 @@ public class Main {
 
         //nodes k distance from root
         System.out.println("k distance from root : " + tree.kDistanceFromRoot(3));
+
+        //Breath first traversal
+        System.out.println("Breath traversal : " + tree.traverseByOrder());
     }
 
     public static int factorial(int number) {

@@ -239,4 +239,15 @@ public class BinaryTree {
         this.kDistanceFromRoot(root.leftChild , distance - 1);
         this.kDistanceFromRoot(root.rightChild , distance - 1);
     }
+
+    public LinkedList<Integer> traverseByOrder(){
+        LinkedList<Integer> orderedItems = new LinkedList<>();
+
+        for(var i = 0 ; i <= this.highOfTree() ; i++){
+            var list = this.kDistanceFromRoot(i);
+            orderedItems.addAll(list);
+        }
+
+        return orderedItems;
+    }
 }
