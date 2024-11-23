@@ -36,24 +36,49 @@ public class AVLTree {
         else
             root.leftChild = this.insert(root.leftChild , value);
 
-        root.height = Math.max(this.height(root.leftChild) , this.height(root.rightChild)) + 1;
-        this.balance(root);
-        return root;
+        this.setHeight(root);
+        return this.balance(root);
     }
 
 
     //checking balance
-    private void balance(AVLNode node){
+    private AVLNode balance(AVLNode node){
         if(this.isRightHeavy(node)){
             if(this.balanceFactor(node.rightChild) > 0)
-                System.out.println("Right rotate : " + node.rightChild.value);
-            System.out.println("Left rotate : " + node.value);
+                node.rightChild = this.rightRotation(node.rightChild);
+            return this.leftRotation(node);
         }
         else if(this.isLeftHeavy(node)){
             if(this.balanceFactor(node.leftChild) < 0)
-                System.out.println("Left rotate : " + node.leftChild.value);
-            System.out.println("Right rotate : " + node.value);
+                node.leftChild = this.leftRotation(node.leftChild);
+            return this.rightRotation(node);
         }
+
+        return node;
+    }
+
+    private AVLNode leftRotation(AVLNode root){
+        var newRoot = root.rightChild;
+        root.rightChild = newRoot.leftChild;
+        newRoot.leftChild = root;
+
+        this.setHeight(root);
+        this.setHeight(newRoot);
+        return newRoot;
+    }
+
+    private AVLNode rightRotation(AVLNode root){
+        var newRoot = root.leftChild;
+        root.leftChild = newRoot.rightChild;
+        newRoot.rightChild = root;
+
+        this.setHeight(root);
+        this.setHeight(newRoot);
+        return newRoot;
+    }
+
+    private void setHeight(AVLNode node){
+        node.height = Math.max(this.height(node.leftChild) , this.height(node.rightChild)) + 1;
     }
 
     public boolean isEmpty(){
