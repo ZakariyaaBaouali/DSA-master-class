@@ -37,13 +37,23 @@ public class AVLTree {
             root.leftChild = this.insert(root.leftChild , value);
 
         root.height = Math.max(this.height(root.leftChild) , this.height(root.rightChild)) + 1;
-
-        if(this.isRightHeavy(root))
-            System.out.println(root.value + " is right heavy");
-        else if(this.isLeftHeavy(root))
-            System.out.println(root.value + " is left heavy");
-
+        this.balance(root);
         return root;
+    }
+
+
+    //checking balance
+    private void balance(AVLNode node){
+        if(this.isRightHeavy(node)){
+            if(this.balanceFactor(node.rightChild) > 0)
+                System.out.println("Right rotate : " + node.rightChild.value);
+            System.out.println("Left rotate : " + node.value);
+        }
+        else if(this.isLeftHeavy(node)){
+            if(this.balanceFactor(node.leftChild) < 0)
+                System.out.println("Left rotate : " + node.leftChild.value);
+            System.out.println("Right rotate : " + node.value);
+        }
     }
 
     public boolean isEmpty(){
